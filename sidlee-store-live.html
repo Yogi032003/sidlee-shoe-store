@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sid Lee Store | Culture-Driven E-Commerce</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; cursor: crosshair; }
+        .italic-hover:hover { font-style: italic; }
+        .transition-slow { transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .parallax-bg { background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        ::selection { background: black; color: white; }
+        .sid-text-huge { font-size: 15vw; line-height: 0.8; letter-spacing: -0.05em; font-weight: 900; text-transform: uppercase; }
+        .sid-nav-link { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; transition: opacity 0.3s; }
+        .sid-nav-link:hover { opacity: 0.5; }
+        .sid-badge { font-size: 9px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.4em; color: rgba(0,0,0,0.4); margin-bottom: 1rem; display: block; }
+        .sid-product-card img { transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .sid-product-card:hover img { transform: scale(1.05); }
+    </style>
+</head>
+<body class="bg-white text-black antialiased">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-8 px-6 md:px-12 flex justify-between items-center transition-slow">
+        <div class="flex-1">
+            <a href="#" class="text-2xl font-black uppercase leading-[0.8] tracking-tighter italic-hover">
+                Sid<br>Store
+            </a>
+        </div>
+        <nav class="hidden lg:flex flex-1 justify-center space-x-12">
+            <a href="#collections" class="sid-nav-link italic-hover">Collections</a>
+            <a href="#archive" class="sid-nav-link italic-hover">Archive</a>
+            <a href="#culture" class="sid-nav-link italic-hover">Culture</a>
+            <a href="#about" class="sid-nav-link italic-hover">About</a>
+        </nav>
+        <div class="flex-1 flex justify-end space-x-6">
+            <button class="hover:scale-110 transition-transform"><i data-lucide="search" class="w-5 h-5"></i></button>
+            <button id="cart-btn" class="relative hover:scale-110 transition-transform">
+                <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                <span id="cart-count" class="absolute -top-2 -right-2 bg-black text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center font-black">0</span>
+            </button>
+            <button id="menu-btn" class="lg:hidden"><i data-lucide="menu" class="w-6 h-6"></i></button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] flex flex-col p-12 translate-x-full transition-transform duration-500 ease-in-out">
+        <div class="flex justify-end">
+            <button id="close-menu"><i data-lucide="x" class="w-8 h-8"></i></button>
+        </div>
+        <nav class="flex flex-col space-y-8 mt-20">
+            <a href="#collections" class="text-6xl font-black uppercase tracking-tighter italic-hover">Collections</a>
+            <a href="#archive" class="text-6xl font-black uppercase tracking-tighter italic-hover">Archive</a>
+            <a href="#culture" class="text-6xl font-black uppercase tracking-tighter italic-hover">Culture</a>
+            <a href="#about" class="text-6xl font-black uppercase tracking-tighter italic-hover">About</a>
+        </nav>
+        <div class="mt-auto opacity-40 text-[10px] font-black uppercase tracking-widest">Sid Lee Collective © 2026</div>
+    </div>
+
+    <!-- Hero -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-black text-white px-6">
+        <div class="absolute inset-0 opacity-60">
+            <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover" alt="Hero Background">
+        </div>
+        <div class="relative z-10 text-center">
+            <span class="sid-badge text-white/40">Issue No. 001 / Collective Artifacts</span>
+            <h1 class="sid-text-huge italic tracking-tighter mb-8">Collect<br>The Culture</h1>
+            <p class="max-w-xl mx-auto text-lg md:text-xl font-medium opacity-80 mb-12">
+                Immortalizing Sid Lee's creative history through physical artifacts. A cross between archive storytelling and e-commerce.
+            </p>
+            <a href="#collections" class="inline-block bg-white text-black px-12 py-6 text-xs font-black uppercase tracking-widest hover:scale-105 transition-slow">
+                Explore The Drop
+            </a>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce">
+            <span class="text-[8px] font-black uppercase tracking-widest mb-2 opacity-60">Scroll</span>
+            <i data-lucide="arrow-down" class="w-4 h-4"></i>
+        </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section id="collections" class="py-32 px-6 md:px-12 bg-white">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-24 gap-12">
+            <div class="max-w-2xl">
+                <span class="sid-badge">Current Drop / Archives</span>
+                <h2 class="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] italic mb-8">Selected<br>Artifacts</h2>
+            </div>
+            <div class="lg:text-right">
+                <p class="text-lg font-medium opacity-60 max-w-sm lg:ml-auto mb-8">
+                    Each piece is a chapter of our history. Curated from the global Sid Lee archive to leave a mark.
+                </p>
+                <div class="flex space-x-6 lg:justify-end text-[10px] font-black uppercase tracking-widest">
+                    <button class="border-b-2 border-black">All</button>
+                    <button class="opacity-40 hover:opacity-100 italic-hover">Archives</button>
+                    <button class="opacity-40 hover:opacity-100 italic-hover">Originals</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
+            <!-- Product 1 -->
+            <div class="sid-product-card group cursor-pointer" onclick="addToCart()">
+                <div class="aspect-[4/5] overflow-hidden bg-gray-50 mb-8 relative">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover" alt="Product 1">
+                    <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-between p-8">
+                        <button class="bg-white text-black p-5 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all">
+                            <i data-lucide="plus" class="w-6 h-6 stroke-[3]"></i>
+                        </button>
+                        <span class="text-[10px] font-black uppercase tracking-[0.3em] text-white drop-shadow-lg">Add to Bag</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="text-[9px] font-black uppercase tracking-widest opacity-40 mb-2 block">Archive / Originals</span>
+                        <h3 class="text-2xl font-black uppercase tracking-tighter italic-hover transition-all">The Sid Lee Crest</h3>
+                    </div>
+                    <span class="text-lg font-bold opacity-80">$120</span>
+                </div>
+                <p class="text-xs font-medium opacity-60 leading-relaxed max-w-[85%]">A reimagining of our creative roots. Designed to leave a mark wherever you walk.</p>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="sid-product-card group cursor-pointer" onclick="addToCart()">
+                <div class="aspect-[4/5] overflow-hidden bg-gray-50 mb-8 relative">
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1974&auto=format&fit=crop" class="w-full h-full object-cover" alt="Product 2">
+                    <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-between p-8">
+                        <button class="bg-white text-black p-5 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all">
+                            <i data-lucide="plus" class="w-6 h-6 stroke-[3]"></i>
+                        </button>
+                        <span class="text-[10px] font-black uppercase tracking-[0.3em] text-white drop-shadow-lg">Add to Bag</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="text-[9px] font-black uppercase tracking-widest opacity-40 mb-2 block">Limited / Adwear</span>
+                        <h3 class="text-2xl font-black uppercase tracking-tighter italic-hover transition-all">Velocity High</h3>
+                    </div>
+                    <span class="text-lg font-bold opacity-80">$180</span>
+                </div>
+                <p class="text-xs font-medium opacity-60 leading-relaxed max-w-[85%]">Engineered for the fast-paced world. Lightweight, responsive, and unapologetic.</p>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="sid-product-card group cursor-pointer" onclick="addToCart()">
+                <div class="aspect-[4/5] overflow-hidden bg-gray-50 mb-8 relative">
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&w=1964&auto=format&fit=crop" class="w-full h-full object-cover" alt="Product 3">
+                    <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-between p-8">
+                        <button class="bg-white text-black p-5 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all">
+                            <i data-lucide="plus" class="w-6 h-6 stroke-[3]"></i>
+                        </button>
+                        <span class="text-[10px] font-black uppercase tracking-[0.3em] text-white drop-shadow-lg">Add to Bag</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="text-[9px] font-black uppercase tracking-widest opacity-40 mb-2 block">Sid Lee X Concepts</span>
+                        <h3 class="text-2xl font-black uppercase tracking-tighter italic-hover transition-all">75 Queen Runner</h3>
+                    </div>
+                    <span class="text-lg font-bold opacity-80">$210</span>
+                </div>
+                <p class="text-xs font-medium opacity-60 leading-relaxed max-w-[85%]">Inspired by the architectural textures of our flagship office. History for your feet.</p>
+            </div>
+        </div>
+
+        <!-- View All -->
+        <div class="mt-32 flex justify-center">
+            <button class="group flex flex-col items-center">
+                <span class="text-[10px] font-black uppercase tracking-[0.6em] mb-4">Discover The Archive</span>
+                <div class="w-12 h-[2px] bg-black group-hover:w-32 transition-slow"></div>
+            </button>
+        </div>
+    </section>
+
+    <!-- Narrative Section -->
+    <section id="culture" class="py-32 bg-black text-white overflow-hidden">
+        <div class="px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+            <div class="reveal">
+                <span class="sid-badge text-white/40">Culture / Narrative</span>
+                <h2 class="text-6xl md:text-9xl font-black uppercase tracking-tighter leading-[0.8] mb-12 italic">Beyond<br>The Box</h2>
+                <div class="space-y-8 text-xl font-medium opacity-80 max-w-lg">
+                    <p>Sid Lee isn't just an agency; it's a creative playground. The Sid Store is where our extracurricular passions find a physical home.</p>
+                    <p>From limited edition footwear to artifacts salvaged from our global offices, every item is a piece of the Sid Lee soul.</p>
+                </div>
+                <button class="mt-16 text-[10px] font-black uppercase tracking-widest border-b-2 border-white pb-3 hover:opacity-50 transition-slow italic-hover">Read Our Manifesto</button>
+            </div>
+            <div class="relative group">
+                <div class="aspect-square bg-white/5 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-slow duration-[2s]" alt="Creative Space">
+                </div>
+                <div class="absolute -top-12 -right-12 bg-white text-black p-10 font-black uppercase text-2xl leading-none italic shadow-2xl hidden md:block group-hover:rotate-12 transition-slow">
+                    Creative<br>Obsession
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-32 px-6 md:px-12 bg-white text-center">
+        <h2 class="text-5xl md:text-7xl font-black uppercase tracking-tighter italic leading-none mb-12">Immortalize<br>Your Obsession.</h2>
+        <p class="text-lg font-medium opacity-60 max-w-sm mx-auto mb-12">Join our newsletter to receive updates on the latest drops and archive selections.</p>
+        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 max-w-lg mx-auto">
+            <input type="email" placeholder="YOUR EMAIL ADDRESS" class="flex-1 border-b-2 border-black py-6 text-xs font-black uppercase tracking-[0.2em] outline-none focus:italic transition-all">
+            <button class="bg-black text-white px-12 py-6 text-xs font-black uppercase tracking-widest hover:italic-hover transition-slow">Submit</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 py-24 px-6 md:px-12">
+        <div class="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
+            <div class="text-2xl font-black uppercase tracking-tighter italic">Sid Store</div>
+            <div class="text-[9px] font-black uppercase tracking-[0.5em] opacity-40">Sid Lee Collective © 2026. All Rights Reserved.</div>
+            <div class="flex space-x-8 text-[10px] font-black uppercase tracking-widest opacity-80">
+                <a href="#" class="italic-hover">Instagram</a>
+                <a href="#" class="italic-hover">Vimeo</a>
+                <a href="#" class="italic-hover">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Header Scroll Logic
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-white/90', 'backdrop-blur-md', 'py-4', 'border-b', 'border-gray-100');
+                header.classList.remove('py-8');
+            } else {
+                header.classList.remove('bg-white/90', 'backdrop-blur-md', 'py-4', 'border-b', 'border-gray-100');
+                header.classList.add('py-8');
+            }
+        });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+
+        // Simple Cart Logic
+        let count = 0;
+        const cartCount = document.getElementById('cart-count');
+        function addToCart() {
+            count++;
+            cartCount.innerText = count;
+            cartCount.classList.add('scale-125');
+            setTimeout(() => cartCount.classList.remove('scale-125'), 200);
+            alert('Added to bag!');
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+    </script>
+</body>
+</html>
